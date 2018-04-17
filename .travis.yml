@@ -1,14 +1,24 @@
 sudo: false
 dist: trusty
-language: python
-python: '3.5'
-
-install:
-  - pip install markdown2
 
 env:
   global:
   - secure: koM8M8Dl+lAcLGKEMuh5gZRPRcTZuKmcTYtnYSeMTwxzbLxWa+yk3+KBBkxnL0MpQpL644OhVlBGF1AJFv3i+k+mXICynbtyiv8nWgnlhhV7usVt46CsdfQt9fFcK3tFz9SudKnzeWTUsfI9QHByT0qmkPDgURZV3ijcKtPHcmG4yAmAanQId/XxDMAUovFqs41hbWQlgObi/7aT1n+R6B4CeO85aSdNsAXO16cIRpNqydql+Q5X/66R5UHd1HNmQ6HpHq++e3xzldqa0aWtDVR+rxedGOEqPm8+Mltss2g82J65i6xnx7qzm/ng6h3DgfyR0GZfb62361y7DsBNX49eUy5aLfreTNyAIYKZlY2Bok68bsx4M/HpEY8Li78FP1I8gvF3OVUSst+W9a8Hp1A7ILzLZkocILeTCff+PP2HxM27y+PM5fIBZOKefl3Qxx7nDmuLZtd8zEsd4Zojc20mJ2SgKFgxXDJNmx94ZsLyOU/+JRS20PMwcqprFAYQA9kTkDnUs4Xqud1rz/Lj3NxrLuYJZelWt/1JZsno6Rx/JDSuvVNh7VzIIj87fSAAtOiys4qawF9AlQrEY+0tTpHdntkQZO13dzS+2hIUIlQBmtylQMxT7sySNCcV1R8eIfRLY0AnAnFn/GNvAJou9iZ5dd4reNCkshCqb19FGuE=
 
+language: android
+jdk: oraclejdk8
+addons:
+  apt:
+    packages:
+    - python3
+    - ant
+android:
+  components:
+    - android-19
+    - build-tools-19.1.0
+    - tools
+before_script:
+  - pip install --user markdown2
 script:
   - ./deploy.sh
+

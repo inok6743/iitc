@@ -1,7 +1,5 @@
 #!/bin/bash
 
-./build.py local
-
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
     DEPLOY_DIR=iitc/release
 else
@@ -9,8 +7,14 @@ else
 fi
 
 git clone https://github.com/inok6743/enl-tottori-web.git deploy_target
+
+./build.py local
 cp -f ./build/local/*.user.js "./deploy_target/${DEPLOY_DIR}/"
 cp -f ./build/local/plugins/*.user.js "./deploy_target/${DEPLOY_DIR}/"
+
+android update project -p ./mobile/
+./build.py mobile
+cp -f ./build/mobile/*.apk "./deploy_target/${DEPLOY_DIR}/"
 
 cd ./deploy_target/
 git config --global user.email 'inok6743@gmail.com'
