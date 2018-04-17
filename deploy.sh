@@ -12,6 +12,10 @@ git clone https://github.com/inok6743/enl-tottori-web.git deploy_target
 cp -f ./build/local/*.user.js "./deploy_target/${DEPLOY_DIR}/"
 cp -f ./build/local/plugins/*.user.js "./deploy_target/${DEPLOY_DIR}/"
 
+echo "key.store=release.keystore"        >> ./mobile/build.properties
+echo "key.store.password=${KEYSTORE_PW}" >> ./mobile/build.properties
+echo "key.alias=mykey"                   >> ./mobile/build.properties
+echo "key.alias.password=${KEYSTORE_PW}" >> ./mobile/build.properties
 android update project -p ./mobile/
 ./build.py mobile
 cp -f ./build/mobile/*.apk "./deploy_target/${DEPLOY_DIR}/"
