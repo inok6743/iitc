@@ -20,9 +20,11 @@ android update project -p ./mobile/
 ./build.py mobile
 cp -f ./build/mobile/*.apk "./deploy_target/${DEPLOY_DIR}/"
 
+ls -l "./deploy_target/${DEPLOY_DIR}/"
 cd ./deploy_target/
-git config --global user.email 'inok6743@gmail.com'
-git config --global user.name 'Travis CI (Automatic Commit)'
-git add './iitc/*.user.js'
+git config --global user.email "inok6743@gmail.com"
+git config --global user.name "Travis CI (Automatic Commit)"
+git add "./iitc/*.user.js"
+git add "./iitc/*.apk"
 git commit -m "IITC: Automatic deploy from Travis-CI (#${TRAVIS_BUILD_NUMBER})"
 git push "https://${GH_TOKEN}@github.com/enl-tottori/enl-tottori-web.git" master:master
