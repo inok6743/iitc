@@ -1,0 +1,12 @@
+sudo: false
+dist: trusty
+language: python
+python: '3.5'
+
+cache:
+  directories:
+    - build   # Reuse intermediate files.
+
+script:
+  - ./build.py local
+  - ls -R ./build/
