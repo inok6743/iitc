@@ -9,8 +9,6 @@ import sys
 import os
 import shutil
 import json
-import shelve
-import hashlib
 import markdown2
 
 try:
