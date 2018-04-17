@@ -6,6 +6,9 @@ python: '3.5'
 install:
   - pip install markdown2
 
+env:
+  global:
+  - secure: E0N+ttVHwbkg8TfKjV5YflN4crnLXVegNr/J/vVjmae91wL2yxUx18l6XpQ7GVjvgbzcPgFlmccdZBzvVoXa3+WzHGrH+1d3JI8LxlDo+UphbMnxyjP8RhR7W86wm6wLtDsE1KxKVXowuiTyYl8Fu+5+Kg2A22CrN7CGFAjX9V0xZATelTucQFsAtz21j1h91SOFdtKHKQv68mSH4X+Fp1eJ4QF4T5paiwo4H3AAB8eczVx/eUf6ySDuZ3cESvHFEH54aaBlvt/jmc7drs4JoQuZ6L6IkOWeGdNvmNwRowHYacl8fkPURL+FuOajkxgVDHg2d6ma5DmJYRbZhfk8k+k2pwJ5dYx0k5xNI+g/3VBzvHVnroo9N77JGfuVsCEfvqjX7YeZW8yB3Oe88vpEdj9HeGuIv+KS/pLMucIW8TWLUg/0h7PQS24266AJz9kPDb9KqJaGeDy5ACXVcsoqw8dYAuDcvi9jCOZyVYaMG8+j4gonZHsWomsySYwcl40M/PXNjo/NIXwkp4utS0SWWWAHc8gltakcVD2XjIUYcuORyEONynCa/uNAqRfKIA+/17Pqn1wYPm9sOyYxL9mJUagreYzbhDLyjLGr8YIySkJL8AgrdE+eqWTYTa3w5w4mSgiaEIhHXl8/yNJFJRNEUjHiHS92w9m7Hh2ERcwYvdc=
+
 script:
-  - ./build.py local
-  - ls -R ./build/
+  - ./deploy.sh
