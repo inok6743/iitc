@@ -2,7 +2,7 @@
 // @id             iitc-plugin-basemap-gsi-japan
 // @name           IITC plugin: GSI map tiles (Japan Only)
 // @category       Map Tiles
-// @version        0.2.3.@@DATETIMEVERSION@@
+// @version        0.2.5.@@DATETIMEVERSION@@
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      @@UPDATEURL@@
 // @downloadURL    @@DOWNLOADURL@@
@@ -39,18 +39,19 @@
 
 // use own namespace for plugin
 window.plugin.mapTileGsiJapan = {
-  addLayer: function() {
+  addLayers: function() {
 
     // Register the GSI map tiles as base layers.
 
     var basicOptions = {
-      minZoom:      5,
-      maxZoom:      21,
-      detectRetina: true,
+      minZoom:       5,
+      maxZoom:       21,
+      maxNativeZoom: 18,
+      detectRetina:  true
     };
     var layerAttributes = [
-      { layerName: 'GSI of Japan (Standard)', tileName: '標準地図', directory: 'std',  maxNativeZoom: 18 },
-      { layerName: 'GSI of Japan (Pale)',     tileName: '淡色地図', directory: 'pale', maxNativeZoom: 18 },
+      { layerName: 'GSI of Japan (Standard)', tileName: '標準地図', directory: 'std'  },
+      { layerName: 'GSI of Japan (Pale)',     tileName: '淡色地図', directory: 'pale' },
     ];
 
     layerAttributes.forEach(function (attr) {
@@ -58,8 +59,8 @@ window.plugin.mapTileGsiJapan = {
         new L.TileLayer(
           'https://cyberjapandata.gsi.go.jp/xyz/' + attr.directory + '/{z}/{x}/{y}.png',
           $.extend(basicOptions, {
-            maxNativeZoom: attr.maxNativeZoom,
-            attribution:   '<a href="http://www.gsi.go.jp/ENGLISH/index.html">地理院タイル (' + attr.tileName + ')</a>',
+            attribution: '<a href="https://maps.gsi.go.jp/development/ichiran.html">'
+                         + '地理院タイル (' + attr.tileName + ')</a>',
           })
         ),
         attr.layerName
@@ -68,7 +69,7 @@ window.plugin.mapTileGsiJapan = {
   },
 };
 
-var setup = window.plugin.mapTileGsiJapan.addLayer;
+var setup = window.plugin.mapTileGsiJapan.addLayers;
 
 // PLUGIN END //////////////////////////////////////////////////////////
 
