@@ -32,7 +32,7 @@ buildSettings = {
     'mobile': {
         'resourceUrlBase': None,
         'distUrlBase': None,
-        'buildMobile': 'debug',
+        'buildMobile': 'release',
     },
 
 

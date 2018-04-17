@@ -1,0 +1,27 @@
+sudo: false
+dist: trusty
+
+env:
+  global:
+  - secure: koM8M8Dl+lAcLGKEMuh5gZRPRcTZuKmcTYtnYSeMTwxzbLxWa+yk3+KBBkxnL0MpQpL644OhVlBGF1AJFv3i+k+mXICynbtyiv8nWgnlhhV7usVt46CsdfQt9fFcK3tFz9SudKnzeWTUsfI9QHByT0qmkPDgURZV3ijcKtPHcmG4yAmAanQId/XxDMAUovFqs41hbWQlgObi/7aT1n+R6B4CeO85aSdNsAXO16cIRpNqydql+Q5X/66R5UHd1HNmQ6HpHq++e3xzldqa0aWtDVR+rxedGOEqPm8+Mltss2g82J65i6xnx7qzm/ng6h3DgfyR0GZfb62361y7DsBNX49eUy5aLfreTNyAIYKZlY2Bok68bsx4M/HpEY8Li78FP1I8gvF3OVUSst+W9a8Hp1A7ILzLZkocILeTCff+PP2HxM27y+PM5fIBZOKefl3Qxx7nDmuLZtd8zEsd4Zojc20mJ2SgKFgxXDJNmx94ZsLyOU/+JRS20PMwcqprFAYQA9kTkDnUs4Xqud1rz/Lj3NxrLuYJZelWt/1JZsno6Rx/JDSuvVNh7VzIIj87fSAAtOiys4qawF9AlQrEY+0tTpHdntkQZO13dzS+2hIUIlQBmtylQMxT7sySNCcV1R8eIfRLY0AnAnFn/GNvAJou9iZ5dd4reNCkshCqb19FGuE=
+  - secure: QqZYCbLvHQVvyQBNN02MpeJmaG5cFOibsgMFNkCPPrMvw+G7yGt+o+VGhnO3Gke5FGwB/n2rEEMII2mCMpqvvr9a3PAOg8r01nySvFFXbiux+4UrtJzlW0rigsj8yInwyuMjn6dAvfXazvbqjjyI9HxHC3pWloOEKQUSChDb7WmaXeDoYrAwOy/NDcwvVFDvSaKB6u28jcOgFSFEtg+DdImBdV+28/U9Z/39DWxoG/PGRWZK769INnLqhogFy+rLedhsIXrMJ0UwEOwkDe/bOjWIXoxn6Su3psYItS7VopOkkjjS17unUZMn4Ia8ApzTv5H2OmRTUvUFlmOx5RWUA1I342JfrnKzjDPLJsA/1hpbCHP9sFG1bqqA4R3DIRcyTW1aPVNTJ4cW76OQxsLJiQA56i5iFqOOcn+HXsWN3Fv60ODyMyPkzEoe1tF4rOv5u9L7XCrchRN4YwlXJ60XvFkaH4rpoxyj4k4iA4z/cPP/iiUdlH1fW0Qq46NALnL2VQGvwJFb5p6dtBphsXusQpTq++rnHSvKtBCdiFsZ9lIfO3kAnQUHu4T0vm1EgIDc+uBB9hHJJtW1F4m9TTvCNV6nr/MbDYwKYY7Ttft/6Kj2lmPbyxKCqnPETTVEOWd9JaIFFj6F0NDw2Z+BI0NSooO0caHHipXBb7YChvA2PQA=
+
+language: android
+jdk: oraclejdk8
+android:
+  components:
+  - android-19
+  - build-tools-19.1.0
+  - tools
+
+addons:
+  apt:
+    packages:
+    - python3
+    - ant
+
+before_script:
+  - pip install --user markdown2
+
+script:
+  - ./deploy.sh
