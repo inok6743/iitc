@@ -1,12 +1,14 @@
 #!/bin/bash
 
+GH_REPOSITORY="https://${GH_TOKEN}@github.com/inok6743/iitc-deploy.git"
+
 if [ "${TRAVIS_BRANCH}" = "master" ]; then
-    DEPLOY_DIR=iitc/release
+    DEPLOY_DIR=files/release
 else
-    DEPLOY_DIR=iitc/development
+    DEPLOY_DIR=files/develop
 fi
 
-git clone https://github.com/inok6743/enl-tottori-web.git deploy_target
+git clone "${GH_REPOSITORY}" deploy_target
 
 ./build.py local
 cp -f ./build/local/*.user.js "./deploy_target/${DEPLOY_DIR}/"
@@ -24,7 +26,7 @@ ls -l "./deploy_target/${DEPLOY_DIR}/"
 cd ./deploy_target/
 git config --global user.email "inok6743@gmail.com"
 git config --global user.name "Travis CI (Automatic Commit)"
-git add "./iitc/*.user.js"
-git add "./iitc/*.apk"
+git add "./files/*.user.js"
+git add "./files/*.apk"
 git commit -m "IITC: Automatic deploy from Travis-CI (#${TRAVIS_BUILD_NUMBER})"
-git push "https://${GH_TOKEN}@github.com/enl-tottori/enl-tottori-web.git" master:master
+git push "${GH_REPOSITORY}" master:master
