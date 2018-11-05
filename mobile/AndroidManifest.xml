@@ -44,7 +44,7 @@
                 <!-- No category needed, because the Intent will specify this class component -->
             </intent-filter>
 
-            <!-- Handles the implicit intent to VIEW the intel.ingress.com/intel URI -->
+            <!-- Handles the implicit intent to VIEW the www.ingress.com/intel URI -->
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <action android:name="android.nfc.action.NDEF_DISCOVERED"/>
@@ -82,22 +82,6 @@
                     android:scheme="https"/>
                 <data
                     android:host="www.ingress.com"
-                    android:pathPrefix="/mission/"
-                    android:scheme="http"/>
-                <data
-                    android:host="intel.ingress.com"
-                    android:pathPrefix="/intel"
-                    android:scheme="https"/>
-                <data
-                    android:host="intel.ingress.com"
-                    android:pathPrefix="/intel"
-                    android:scheme="http"/>
-                <data
-                    android:host="intel.ingress.com"
-                    android:pathPrefix="/mission/"
-                    android:scheme="https"/>
-                <data
-                    android:host="intel.ingress.com"
                     android:pathPrefix="/mission/"
                     android:scheme="http"/>
             </intent-filter>
